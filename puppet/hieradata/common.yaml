@@ -50,22 +50,6 @@ server:
         - vim-tiny
         - vim-doc
         - vim-scripts
-        - libpython2.7
-        - python2.7
-        - python2.7-minimal
-        - libgpm2
-        - python2.7-doc
-        - gpm
-        - ctags
-        - indent
-        - binfmt-support
-        - libapr1
-        - libarutil1
-        - libaprutil1-dbd-sqlite3
-        - libaprutil1-ldap
-        - ssl-cert
-        - openssl-blacklist
-        - www-browser
     dot_files:
         -
             bash_aliases: null
@@ -90,7 +74,7 @@ apache:
     default_vhost: true
     mpm_module: prefork
 php:
-    version: '55'
+    version: '54'
     composer: '1'
     modules:
         php:
@@ -115,7 +99,7 @@ xdebug:
         xdebug.remote_handler: dbgp
         xdebug.remote_port: '9000'
 mysql:
-    root_password: makerdev
+    root_password: vagrant
     phpmyadmin: 0
     databases: {  }
 
