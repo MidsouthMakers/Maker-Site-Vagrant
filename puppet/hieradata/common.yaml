@@ -1,8 +1,8 @@
 ---
 vagrantfile-local:
     vm:
-        box: debian-wheezy72-x64-vbox43
-        box_url: 'https://puphpet.s3.amazonaws.com/debian-wheezy72-x64-vbox43.box'
+        box: ubuntu-precise12042-x64-vbox43
+        box_url: 'https://puphpet.s3.amazonaws.com/ubuntu-precise12042-x64-vbox43.box'
         hostname: null
         network:
             private_network: 192.168.56.101
@@ -23,7 +23,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            xMwd0YUyx2sJ:
+            mNir8n6KXvlS:
                 id: vagrant-root
                 source: ./src
                 target: /var/www
@@ -46,9 +46,6 @@ server:
         - git
         - subversion
         - vim-common
-        - vim-runtime
-        - vim-tiny
-        - vim-doc
         - vim-scripts
     dot_files:
         -
@@ -59,7 +56,7 @@ apache:
         - php
         - rewrite
     vhosts:
-        VV54nVj0OuB8:
+        KqwWSfqsY1OY:
             servername: maker-site.dev
             serveraliases:
                 - www.maker-site.dev
@@ -82,6 +79,8 @@ php:
             - curl
             - gd
             - intl
+            - dbg
+            - sqlite
         pear: {  }
         pecl:
             - pecl_http
