@@ -1,15 +1,12 @@
 ---
 vagrantfile-local:
     vm:
-        box: ubuntu-precise12042-x64-vbox43
-        box_url: 'https://puphpet.s3.amazonaws.com/ubuntu-precise12042-x64-vbox43.box'
+        box: debian-wheezy72-x64-vbox43
+        box_url: 'https://puphpet.s3.amazonaws.com/debian-wheezy72-x64-vbox43.box'
         hostname: null
         network:
             private_network: 192.168.56.101
-            forwarded_port:
-                SHkgcVgAKju8:
-                    host: '8080'
-                    guest: '80'
+            forwarded_port: {  }
         provider:
             virtualbox:
                 modifyvm:
@@ -26,7 +23,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            uJweEMDQ4xNR:
+            xMwd0YUyx2sJ:
                 id: vagrant-root
                 source: ./src
                 target: /var/www
@@ -62,18 +59,11 @@ server:
         - ctags
         - indent
         - binfmt-support
-        - apache2.2-bin
-        - apache2.2-common
         - libapr1
         - libarutil1
-        - apache2-utils
-        - apache2-mpm-worker
         - libaprutil1-dbd-sqlite3
         - libaprutil1-ldap
         - ssl-cert
-        - apache2-doc
-        - apache2-suexec
-        - apache2-suexec-custom
         - openssl-blacklist
         - www-browser
     dot_files:
@@ -85,7 +75,7 @@ apache:
         - php
         - rewrite
     vhosts:
-        UuB7MCey2yHM:
+        VV54nVj0OuB8:
             servername: maker-site.dev
             serveraliases:
                 - www.maker-site.dev
