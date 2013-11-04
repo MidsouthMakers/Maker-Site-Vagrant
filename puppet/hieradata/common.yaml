@@ -7,9 +7,9 @@ vagrantfile-local:
         network:
             private_network: 192.168.56.101
             forwarded_port:
-                LnJbKTfRmzLc:
-                    host: ''
-                    guest: ''
+                SHkgcVgAKju8:
+                    host: '8080'
+                    guest: '80'
         provider:
             virtualbox:
                 modifyvm:
@@ -26,7 +26,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            40wpLFq1zSua:
+            uJweEMDQ4xNR:
                 id: vagrant-root
                 source: ./src
                 target: /var/www
@@ -46,9 +46,36 @@ vagrantfile-local:
         host: ':detect'
 server:
     packages:
-        - vim
         - git
         - subversion
+        - vim-common
+        - vim-runtime
+        - vim-tiny
+        - vim-doc
+        - vim-scripts
+        - libpython2.7
+        - python2.7
+        - python2.7-minimal
+        - libgpm2
+        - python2.7-doc
+        - gpm
+        - ctags
+        - indent
+        - binfmt-support
+        - apache2.2-bin
+        - apache2.2-common
+        - libapr1
+        - libarutil1
+        - apache2-utils
+        - apache2-mpm-worker
+        - libaprutil1-dbd-sqlite3
+        - libaprutil1-ldap
+        - ssl-cert
+        - apache2-doc
+        - apache2-suexec
+        - apache2-suexec-custom
+        - openssl-blacklist
+        - www-browser
     dot_files:
         -
             bash_aliases: null
@@ -58,7 +85,7 @@ apache:
         - php
         - rewrite
     vhosts:
-        jWB4Eu70wGLx:
+        UuB7MCey2yHM:
             servername: maker-site.dev
             serveraliases:
                 - www.maker-site.dev
