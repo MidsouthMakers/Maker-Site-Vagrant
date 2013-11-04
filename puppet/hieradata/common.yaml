@@ -1,8 +1,8 @@
 ---
 vagrantfile-local:
     vm:
-        box: debian-wheezy72-x64-vbox43
-        box_url: 'https://puphpet.s3.amazonaws.com/debian-wheezy72-x64-vbox43.box'
+        box: ubuntu-precise12042-x64-vbox43
+        box_url: 'https://puphpet.s3.amazonaws.com/ubuntu-precise12042-x64-vbox43.box'
         hostname: null
         network:
             private_network: 192.168.56.101
@@ -23,7 +23,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            xMwd0YUyx2sJ:
+            mNir8n6KXvlS:
                 id: vagrant-root
                 source: ./src
                 target: /var/www
@@ -46,26 +46,7 @@ server:
         - git
         - subversion
         - vim-common
-        - vim-runtime
-        - vim-tiny
-        - vim-doc
         - vim-scripts
-        - libpython2.7
-        - python2.7
-        - python2.7-minimal
-        - libgpm2
-        - python2.7-doc
-        - gpm
-        - ctags
-        - indent
-        - binfmt-support
-        - libapr1
-        - libarutil1
-        - libaprutil1-dbd-sqlite3
-        - libaprutil1-ldap
-        - ssl-cert
-        - openssl-blacklist
-        - www-browser
     dot_files:
         -
             bash_aliases: null
@@ -75,7 +56,7 @@ apache:
         - php
         - rewrite
     vhosts:
-        VV54nVj0OuB8:
+        KqwWSfqsY1OY:
             servername: maker-site.dev
             serveraliases:
                 - www.maker-site.dev
@@ -90,7 +71,7 @@ apache:
     default_vhost: true
     mpm_module: prefork
 php:
-    version: '55'
+    version: '54'
     composer: '1'
     modules:
         php:
@@ -98,6 +79,8 @@ php:
             - curl
             - gd
             - intl
+            - dbg
+            - sqlite
         pear: {  }
         pecl:
             - pecl_http
@@ -115,7 +98,7 @@ xdebug:
         xdebug.remote_handler: dbgp
         xdebug.remote_port: '9000'
 mysql:
-    root_password: makerdev
+    root_password: vagrant
     phpmyadmin: 0
     databases: {  }
 
