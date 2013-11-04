@@ -1,19 +1,19 @@
 ---
 vagrantfile-local:
     vm:
-        box: wheezy64
-        box_url: 'http://puppet-vagrant-boxes.puppetlabs.com/debian-70rc1-x64-vbox4210.box'
+        box: ubuntu-precise12042-x64-vbox43
+        box_url: 'https://puphpet.s3.amazonaws.com/ubuntu-precise12042-x64-vbox43.box'
         hostname: null
         network:
             private_network: 192.168.56.101
             forwarded_port:
-                uk4wdj0qJHL9:
+                LnJbKTfRmzLc:
                     host: ''
                     guest: ''
         provider:
             virtualbox:
                 modifyvm:
-                    name: my-vm-box
+                    name: maker-site-dev
                     natdnshostresolver1: on
                     memory: '512'
                 setextradata:
@@ -26,7 +26,7 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            VPG5wjvf89Qj:
+            40wpLFq1zSua:
                 id: vagrant-root
                 source: ./src
                 target: /var/www
@@ -58,8 +58,10 @@ apache:
         - php
         - rewrite
     vhosts:
-        97djQMY56jr9:
+        jWB4Eu70wGLx:
             servername: maker-site.dev
+            serveraliases:
+                - www.maker-site.dev
             docroot: /var/www
             port: '80'
             setenv:
@@ -76,10 +78,9 @@ php:
     modules:
         php:
             - cli
-            - intl
-            - mcrypt
             - curl
             - gd
+            - intl
         pear: {  }
         pecl:
             - pecl_http
