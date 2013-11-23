@@ -28,7 +28,7 @@ Vagrant.configure("2") do |config|
   end
 
 
-
+  config.vm.provision :shell, :path => "shell/post-puppet.sh"
 
   config.ssh.username = "vagrant"
 
