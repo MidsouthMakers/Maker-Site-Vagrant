@@ -1,16 +1,19 @@
 ---
 vagrantfile-local:
     vm:
-        box: ubuntu-precise12042-x64-vbox43
-        box_url: 'https://puphpet.s3.amazonaws.com/ubuntu-precise12042-x64-vbox43.box'
+        box: debian-wheezy72-x64-vbox43
+        box_url: 'http://box.puphpet.com/debian-wheezy72-x64-vbox43.box'
         hostname: null
         network:
             private_network: 192.168.56.101
-            forwarded_port: {  }
+            forwarded_port:
+                5PQFI3igyCiE:
+                    host: ''
+                    guest: ''
         provider:
             virtualbox:
                 modifyvm:
-                    name: maker-site-dev
+                    name: Maker-Dev
                     natdnshostresolver1: on
                     memory: '512'
                 setextradata:
@@ -23,9 +26,9 @@ vagrantfile-local:
                     - '--hiera_config /vagrant/hiera.yaml'
                     - '--parser future'
         synced_folder:
-            mNir8n6KXvlS:
+            347xjCZpcrZO:
                 id: vagrant-root
-                source: ./src
+                source: ./src/
                 target: /var/www
                 nfs: 'false'
         usable_port_range: 2200..2250
@@ -43,10 +46,7 @@ vagrantfile-local:
         host: ':detect'
 server:
     packages:
-        - git
-        - subversion
-        - vim-common
-        - vim-scripts
+        - vim
     dot_files:
         -
             bash_aliases: null
@@ -56,11 +56,11 @@ apache:
         - php
         - rewrite
     vhosts:
-        KqwWSfqsY1OY:
-            servername: maker-site.dev
+        zOB9xSe65obi:
+            servername: makersite.dev
             serveraliases:
-                - www.maker-site.dev
-            docroot: /var/www
+                - www.makersite.dev
+            docroot: /var/www/
             port: '80'
             setenv:
                 - 'APP_ENV dev'
@@ -71,22 +71,23 @@ apache:
     default_vhost: true
     mpm_module: prefork
 php:
-    version: '54'
+    version: '55'
     composer: '1'
     modules:
         php:
             - cli
+            - intl
+            - mcrypt
             - curl
             - gd
-            - intl
-            - dbg
-            - sqlite
+            - imagick
         pear: {  }
         pecl:
             - pecl_http
     ini:
         display_errors: On
         error_reporting: '-1'
+        session.save_path: /var/lib/php/session
     timezone: America/Chicago
 xdebug:
     install: 0
@@ -99,6 +100,14 @@ xdebug:
         xdebug.remote_port: '9000'
 mysql:
     root_password: vagrant
-    phpmyadmin: 0
-    databases: {  }
+    phpmyadmin: '1'
+    databases:
+        XyNiubZX8pgI:
+            grant:
+                - ALL
+            name: maker
+            host: localhost
+            user: maker
+            password: maker
+            sql_file: ''
 
