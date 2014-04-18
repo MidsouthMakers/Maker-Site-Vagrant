@@ -1,0 +1,25 @@
+# Guest
+guest:
+   name: 'vagrant'
+   hostname: 'vagrant'
+   box:
+      box_name: chef/centos-6.5
+      #box_name: centos65_64
+      #box_url: 'http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.5-x86_64-v20140110.box'
+      #check_sum: '7c51a985a2d671d9cda72260b5ea0dd41eb9e87b0c027910bc649aad0a2bbe7e'
+      #check_sum_type: 'sha256'
+   cpus: 1
+   cpu_execution_cap: 100
+   memory: 512
+   acpi: 'off'
+   pae: 'on'
+   acceleration:
+      extensions: 'on'
+      nestedpaging: 'off'
+   natdns:
+      hostresolver: 'on'
+      proxy: 'on'
+   network:
+      private_network: 192.168.56.101
+      #forwarded_ports:
+      #   8141: 22

@@ -1,6 +1,7 @@
-.vagrant*
-index.html
-*~
-*/*.*~
-src/*
-!src/SRC.md
+.vagrant/
+/tmp/librarian/
+
+!cookbooks
+cookbooks/*
+
+*.lock

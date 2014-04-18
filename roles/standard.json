@@ -1,0 +1,18 @@
+{
+	"name": "standard",
+	"chef_type": "role",
+	"json_class": "Chef::Role",
+	"description": "The basic things for a standard server.",
+	"default_attributes": {
+		"editor": {
+			"default": "vim"
+		}
+	},
+	"run_list": [
+		"recipe[vim]",
+		"recipe[editor]",
+		"recipe[git]",
+		"recipe[build-essential]",
+		"recipe[myzsh]"
+	]
+}
